@@ -271,12 +271,26 @@ function getRandomColor() {
 function resetGrid() {
   const squares = document.querySelectorAll(".grid-square");
   squares.forEach((square) => {
-    square.style.backgroundColor = "#000"; // Make sure it's black, not white
+    // Clear all style properties completely
+    square.style.removeProperty("background-color");
+    square.style.removeProperty("box-shadow");
+    square.style.removeProperty("border");
+    square.style.removeProperty("border-color");
+
+    // Set default background to black with important
+    square.style.setProperty("background-color", "#000", "important");
+    square.style.setProperty("box-shadow", "none", "important");
+
+    // Reset data attributes
     square.setAttribute("data-interactions", "0");
     square.removeAttribute("data-base-color");
+
+    // Remove any classes
     square.classList.remove("hovered", "drawn", "darkening");
+
+    console.log("🧹 Reset square:", square.getAttribute("data-index"));
   });
-  console.log("Grid reset!");
+  console.log("✅ Grid reset complete!");
 }
 
 /**

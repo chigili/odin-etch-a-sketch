@@ -1,0 +1,286 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #0a0a0a; /* Dark retro background */
+  color: #fff;
+}
+
+/* Retro animated heading */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: "Courier New", monospace;
+  font-size: 3.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+
+  /* Neon glow effect */
+  color: #00ff41;
+  text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41,
+    0 0 20px #00ff41, 0 0 35px #00ff41, 0 0 40px #00ff41;
+
+  /* Animation */
+  animation: neonFlicker 3s infinite alternate,
+    textPulse 2s ease-in-out infinite;
+
+  /* 3D perspective effect */
+  transform: perspective(500px) rotateX(15deg);
+  transform-style: preserve-3d;
+}
+
+/* Neon flicker animation */
+@keyframes neonFlicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41,
+      0 0 20px #00ff41, 0 0 35px #00ff41, 0 0 40px #00ff41;
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: 0 0 2px #00ff41, 0 0 4px #00ff41, 0 0 6px #00ff41,
+      0 0 8px #00ff41, 0 0 12px #00ff41;
+  }
+}
+
+/* Pulse animation */
+@keyframes textPulse {
+  0%,
+  100% {
+    transform: perspective(500px) rotateX(15deg) scale(1);
+  }
+  50% {
+    transform: perspective(500px) rotateX(15deg) scale(1.05);
+  }
+}
+
+/* Retro scanlines effect */
+h1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.1) 2px,
+    rgba(0, 255, 65, 0.1) 4px
+  );
+  animation: scanlines 0.1s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanlines {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(4px);
+  }
+}
+
+/* Update other elements for retro theme */
+.info {
+  text-align: center;
+  margin-top: 20px;
+  color: #00ff41;
+  font-family: "Courier New", monospace;
+}
+
+.info p {
+  margin: 5px 0;
+}
+
+#current-mode {
+  font-weight: bold;
+  color: #ff0080;
+  text-shadow: 0 0 5px #ff0080;
+}
+
+#grid-size {
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+#mode-instructions {
+  font-style: italic;
+  background-color: rgba(0, 255, 65, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  border: 1px solid #00ff41;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.controls button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: "Courier New", monospace;
+  border: 2px solid;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  /* Retro button effects */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#new-grid-btn {
+  background-color: #000;
+  color: #00ffff;
+  border-color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+#new-grid-btn:hover {
+  background-color: #00ffff;
+  color: #000;
+  box-shadow: 0 0 20px #00ffff;
+  transform: translateY(-2px);
+}
+
+#reset-btn {
+  background-color: #000;
+  color: #ff0080;
+  border-color: #ff0080;
+  text-shadow: 0 0 5px #ff0080;
+}
+
+#reset-btn:hover {
+  background-color: #ff0080;
+  color: #000;
+  box-shadow: 0 0 20px #ff0080;
+  transform: translateY(-2px);
+}
+
+#toggle-mode-btn {
+  background-color: #000;
+  color: #00ff41;
+  border-color: #00ff41;
+  text-shadow: 0 0 5px #00ff41;
+}
+
+#toggle-mode-btn:hover {
+  background-color: #00ff41;
+  color: #000;
+  box-shadow: 0 0 20px #00ff41;
+  transform: translateY(-2px);
+}
+
+/* Grid container with retro styling */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 640px; /* Fixed total size */
+  height: 640px;
+  margin: 0 auto;
+  border: 3px solid #00ff41;
+  background-color: #111;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 65, 0.3),
+    inset 0 0 20px rgba(0, 255, 65, 0.1);
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Add retro grid effect */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+/* Grid squares */
+.grid-square {
+  border: 1px solid #333 !important;
+  box-sizing: border-box !important;
+  background-color: #000 !important;
+  cursor: crosshair;
+  transition: none; /* Remove transition for smoother drawing */
+  position: relative;
+}
+
+/* Remove any conflicting background styles */
+.grid-square * {
+  background: none !important;
+}
+
+/* Ensure proper layering */
+.grid-square {
+  z-index: 1;
+}
+
+/* Add subtle glow to drawn squares */
+.grid-square:not([style*="background-color: #000"]):not(
+    [style*="background-color: rgb(0, 0, 0)"]
+  ) {
+  box-shadow: 0 0 5px currentColor !important;
+}
+
+/* Special glow for cyan squares */
+.grid-square[style*="#00ffff"] {
+  box-shadow: 0 0 8px #00ffff, 0 0 12px rgba(0, 255, 255, 0.5) !important;
+}
+
+/* Retro body background pattern */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 25% 25%,
+      rgba(0, 255, 65, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(255, 0, 128, 0.1) 0%,
+      transparent 50%
+    );
+  z-index: -1;
+  animation: backgroundPulse 4s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}

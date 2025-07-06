@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Etch-a-Sketch</h1>
+
+    <div class="controls">
+      <button id="new-grid-btn">Create New Grid</button>
+      <button id="reset-btn">Reset Grid</button>
+      <button id="toggle-mode-btn">Toggle Mode: Hover</button>
+    </div>
+
+    <div class="container" id="grid-container">
+      <!-- Grid squares will be created here by JavaScript -->
+    </div>
+
+    <div class="info">
+      <p>Current mode: <span id="current-mode">Loading...</span></p>
+      <p>Grid size: <span id="grid-size">16x16</span></p>
+      <div id="mode-instructions">Loading...</div>
+      <p>Press 'R' to reset, 'N' for new grid, 'M' to toggle mode.</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
